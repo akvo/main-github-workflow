@@ -1,0 +1,32 @@
+name: Yarn Operation
+
+on:
+  workflow_call:
+    secrets:
+      GIT_ACCESS_TOKEN:
+        required: true
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code Resository
+        uses: actions/checkout@v3
+
+      - name: Checkout Reusable Workflow
+        uses: actions/checkout@v3
+        with:
+          repository: anjar-org/core-pipeline
+          token: ${{ secrets.GIT_ACCESS_TOKEN }}
+          path: main-github-workflow
+
+      - name: Yarn install and build
+        run: ./main-github-workflow/ci/general/yarn-operation.sh
+        shell: bash
+
+      - name: Yarn Artifact Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: yarn-artifact
+          path: app/build
+          retention-days: 1
