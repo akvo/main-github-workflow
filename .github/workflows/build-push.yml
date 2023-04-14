@@ -5,6 +5,16 @@ on:
     secrets:
       GIT_ACCESS_TOKEN:
         required: true
+    inputs:
+      app-name:
+        description: 'Application Name'
+        required: true
+        type: string
+      service-name:
+        description: 'Service Name'
+        required: true
+        type: string
+
 
 jobs:
   process:
@@ -28,7 +38,7 @@ jobs:
           path: main-github-workflow
 
       - name: Build
-        run: ./main-github-workflow/ci/general/build.sh sahtoso-columbia frontend main
+        run: ./main-github-workflow/ci/general/build.sh ${{ inputs.app-name }} ${{ inputs.service-name }} $GITHUB_REF_NAME.$GITHUB_SHA
         shell: bash
 
       - name: Write secret to file
@@ -36,5 +46,5 @@ jobs:
         shell: bash
 
       - name: Push
-        run: ./main-github-workflow/ci/general/push.sh sahtoso-columbia frontend main
+        run: ./main-github-workflow/ci/general/push.sh  ${{ inputs.app-name }} ${{ inputs.service-name }} $GITHUB_REF_NAME.$GITHUB_SHA
         shell: bash

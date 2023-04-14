@@ -5,6 +5,15 @@ on:
     secrets:
       GIT_ACCESS_TOKEN:
         required: true
+    inputs:
+      app-name:
+        description: 'Application Name'
+        required: true
+        type: string
+      service-name:
+        description: 'Service Name'
+        required: true
+        type: string
 
 jobs:
   process:
@@ -33,5 +42,5 @@ jobs:
         shell: bash
 
       - name: Rollout
-        run: ./main-github-workflow/ci/general/rollout.sh sahtoso-columbia frontend main
+        run: ./main-github-workflow/ci/general/rollout.sh  ${{ inputs.app-name }} ${{ inputs.service-name }}  $GITHUB_REF_NAME.$GITHUB_SHA
         shell: bash
