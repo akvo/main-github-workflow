@@ -33,8 +33,7 @@ jobs:
       - name: Checkout Reusable Workflow
         uses: actions/checkout@v3
         with:
-          repository: anjar-org/core-pipeline
-          token: ${{ secrets.GIT_ACCESS_TOKEN }}
+          repository: akvo/main-github-workflow
           path: main-github-workflow
 
       - name: Build
