@@ -14,6 +14,10 @@ on:
         description: 'Service Name'
         required: true
         type: string
+      dockerfile-location:
+        description: 'Locafion of Dockerfile'
+        required: true
+        type: string
 
 
 jobs:
@@ -37,7 +41,7 @@ jobs:
           path: main-github-workflow
 
       - name: Build
-        run: ./main-github-workflow/helpers/general/build.sh ${{ inputs.app-name }} ${{ inputs.service-name }} $GITHUB_REF_NAME.$GITHUB_SHA
+        run: ./main-github-workflow/helpers/general/build.sh ${{ inputs.app-name }} ${{ inputs.service-name }} $GITHUB_REF_NAME.$GITHUB_SHA ${{ inputs.dockerfile-location }}
         shell: bash
 
       - name: Write secret to file

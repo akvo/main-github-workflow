@@ -5,6 +5,7 @@ set -exuo pipefail
 # ${1} for repo name
 # ${2} for service name
 # ${3} for image version
+# ${4} for dockerfile location
 
 gcloud_project="akvo-lumen"
 registry="eu.gcr.io"
@@ -15,11 +16,13 @@ image_build () {
     repo_name="${1}"
     service_name="${2}"
     image_version="${3}"
+    dockerfile_location="${4}"
 
     docker build \
         --tag "${image_prefix}/${service_name}:latest" \
-        --tag "${image_prefix}/${service_name}:${image_version}" .
+        --tag "${image_prefix}/${service_name}:${image_version}" \
+        --file "${dockerfile_location}" .
 }
 
 
-image_build ${1} ${2} ${3}
+image_build ${1} ${2} ${3} ${4}
