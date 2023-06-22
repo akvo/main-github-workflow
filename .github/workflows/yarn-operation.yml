@@ -20,7 +20,7 @@ jobs:
           path: main-github-workflow
 
       - name: Yarn install and build
-        run: ./main-github-workflow/helpers/general/yarn-operation.sh
+        run: ./main-github-workflow/helpers/node/yarn-operation.sh
         shell: bash
 
       - name: Yarn Artifact Upload
