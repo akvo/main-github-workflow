@@ -26,6 +26,6 @@ jobs:
       - name: Yarn Artifact Upload
         uses: actions/upload-artifact@v3
         with:
-          name: yarn-artifact
-          path: app/build
+          name: build-artifact
+          path: app/yarn
           retention-days: 1

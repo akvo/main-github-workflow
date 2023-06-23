@@ -31,7 +31,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
-          name: yarn-artifact
+          name: build-artifact
           path: artifact
 
       - name: Checkout Reusable Workflow

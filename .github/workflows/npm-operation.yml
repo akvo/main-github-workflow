@@ -32,6 +32,6 @@ jobs:
       - name: NPM Artifact Upload
         uses: actions/upload-artifact@v3
         with:
-          name: npm-artifact
-          path: npm/artifact
+          name: build-artifact
+          path: app/npm
           retention-days: 1
