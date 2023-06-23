@@ -9,4 +9,4 @@ docker run \
        --volume "$(pwd):/app" \
        --workdir "/app" \
        --entrypoint /bin/sh \
-       node:${1}-slim -c "${2}"
+       node:${1}-slim -c "chown root:root . && ${2}"
