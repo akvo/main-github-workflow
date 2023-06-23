@@ -14,6 +14,11 @@ on:
         description: 'Service Name'
         required: true
         type: string
+      cluster-name:
+        description: 'Cluster Name'
+        required: true
+        type: string
+
 
 jobs:
   process:
@@ -41,5 +46,5 @@ jobs:
         shell: bash
 
       - name: Rollout
-        run: ./main-github-workflow/helpers/general/rollout.sh  ${{ inputs.app-name }} ${{ inputs.service-name }}  $GITHUB_REF_NAME.$GITHUB_SHA
+        run: ./main-github-workflow/helpers/general/rollout.sh  ${{ inputs.app-name }} ${{ inputs.service-name }}  $GITHUB_REF_NAME.$GITHUB_SHA ${{ inputs.cluster-name }}
         shell: bash
