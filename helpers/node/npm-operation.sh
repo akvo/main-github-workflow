@@ -6,7 +6,7 @@ set -euv
 
 docker run \
        --rm \
-       --volume "$(pwd)/app:/app" \
+       --volume "$(pwd):/app" \
        --workdir "/app" \
        --entrypoint /bin/sh \
        node:${1}-slim -c "${2}"
