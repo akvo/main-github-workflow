@@ -33,5 +33,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: build-artifact
-          path: app/npm
+          path: .
           retention-days: 1
