@@ -1,4 +1,4 @@
-name: Yarn Operation
+name: NPM Operation
 
 on:
   workflow_call:
@@ -25,8 +25,8 @@ jobs:
           repository: akvo/main-github-workflow
           path: main-github-workflow
 
-      - name: Yarn install and build
-        run: ./main-github-workflow/helpers/node/npm-operation.sh ${{ inputs.node-version }}  ${{ inputs.npm-command }}
+      - name: NPM command execution
+        run: ./main-github-workflow/helpers/node/npm-operation.sh ${{ inputs.node-version }} "${{ inputs.npm-command }}"
         shell: bash
 
       - name: NPM Artifact Upload

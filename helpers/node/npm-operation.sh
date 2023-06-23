@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eu
+set -euv
 
 # ${1} for node version
 # ${2} for npm command
