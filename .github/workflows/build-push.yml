@@ -15,7 +15,7 @@ on:
         required: true
         type: string
       dockerfile-location:
-        description: 'Locafion of Dockerfile'
+        description: 'Location of Dockerfile'
         required: true
         type: string
 
