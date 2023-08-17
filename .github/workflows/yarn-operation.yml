@@ -27,5 +27,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: build-artifact
-          path: /build
+          path: app/build
           retention-days: 1
