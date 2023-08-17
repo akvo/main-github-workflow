@@ -8,7 +8,7 @@ set -exuo pipefail
 
 gcloud_project="akvo-lumen"
 registry="eu.gcr.io"
-cluster-name=${4}
+cluster_name=${4}
 
 auth () {
     gcloud auth activate-service-account --key-file=gcp.json
@@ -16,7 +16,7 @@ auth () {
     gcloud config set container/cluster europe-west1-d
     gcloud config set compute/zone europe-west1-d
     gcloud config set container/use_client_certificate False
-    gcloud container clusters get-credentials ${cluster-name}
+    gcloud container clusters get-credentials ${cluster_name}
 }
 
 auth
