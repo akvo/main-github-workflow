@@ -15,7 +15,7 @@ auth () {
     gcloud config set container/cluster europe-west1-d
     gcloud config set compute/zone europe-west1-d
     gcloud config set container/use_client_certificate False
-    gcloud container clusters get-credentials "test"
+    gcloud container clusters get-credentials ${4}
 }
 
 auth
