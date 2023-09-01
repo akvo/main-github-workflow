@@ -1,0 +1,37 @@
+name: Node Operation
+
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        description: 'Node version'
+        required: true
+        type: string
+      node-command:
+        description: 'Node command that will be executed'
+        required: true
+        type: string
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code Resository
+        uses: actions/checkout@v3
+
+      - name: Checkout Reusable Workflow
+        uses: actions/checkout@v3
+        with:
+          repository: akvo/main-github-workflow
+          path: main-github-workflow
+
+      - name: node command execution
+        run: ./main-github-workflow/helpers/node/node-operation.sh ${{ inputs.node-version }} "${{ inputs.node-command }}"
+        shell: bash
+
+      - name: Node Artifact Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifact
+          path: .
+          retention-days: 1
