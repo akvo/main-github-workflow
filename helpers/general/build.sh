@@ -18,10 +18,9 @@ image_build () {
     image_version="${3}"
     dockerfile_location="${4}"
 
-    docker build \
+    cd "${dockerfile_location}" && docker build \
         --tag "${image_prefix}/${service_name}:latest" \
-        --tag "${image_prefix}/${service_name}:${image_version}" \
-        --file "${dockerfile_location}" .
+        --tag "${image_prefix}/${service_name}:${image_version}" .
 }
 
 
