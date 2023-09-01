@@ -25,7 +25,7 @@ jobs:
           repository: akvo/main-github-workflow
           path: main-github-workflow
 
-      - name: node command execution
+      - name: Node Command Execution
         run: ./main-github-workflow/helpers/node/node-operation.sh ${{ inputs.node-version }} "${{ inputs.node-command }}"
         shell: bash
 
@@ -33,5 +33,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: build-artifact
-          path: .
+          path: app/build
           retention-days: 1
