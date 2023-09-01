@@ -32,7 +32,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build-artifact
-          path: .
+          path: frontend
 
       - name: Checkout Reusable Workflow
         uses: actions/checkout@v3
