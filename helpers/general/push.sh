@@ -21,6 +21,7 @@ auth () {
 push_image () {
     prefix="${registry}/${gcloud_project}/${1}"
     docker push "${prefix}/${2}:${3}"
+    docker push "${prefix}/${2}:latest-test"
 }
 
 auth
